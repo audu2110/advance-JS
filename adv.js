@@ -19,3 +19,26 @@ printFullName.apply(name2,[20]);
 let printMyName=printFullName.bind(name2);
 console.log(printMyName(20));
 printMyName(20);
+
+//  Currying 
+let multiply =function(x,y){
+    console.log(x*y);
+}
+
+
+let multiplyByTwo= multiply.bind(this, 2);
+multiplyByTwo(5);
+
+let multiplyByThree= multiply.bind(this, 3);
+multiplyByThree(5);
+
+// Another Moethod
+let multiply=function(x){
+    return function(y){
+        console.log(x * y);
+    }
+}
+
+
+let multiplyByTwo= multiply(2);
+multiplyByTwo(5);
