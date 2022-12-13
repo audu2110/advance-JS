@@ -134,3 +134,44 @@ class student
   const tom=new student('tom',25,'87846488',10);
   tom.checkElegiblity();
 
+
+class student  
+  {  
+    
+    constructor(name,age,phonenumber,marks)  
+    {  
+      this.name=name;
+      this.age=age;
+      this.phonenumber=phonenumber;
+      this.marks=marks;
+    }
+    checkElegiblity(){
+        if(this.marks>40){
+            console.log('eligible')
+        }
+        else{
+            console.log('not elegible');
+        }
+    }
+    let elegibleForPlacement=(compMarks)=>{
+        if(this.marks>compMarks){
+            console.log("Elegible for placement");
+        }
+        else{
+            console.log("Not elegible for placement");
+        }
+    }
+    printDetails(){
+        console.log(`${this.name} of age ${this.age} has scored ${this.marks}`)
+    }
+  }
+  const od=new student('od',21,'87846488',50);
+  od.elegibleForPlacement(45);
+
+  const john=new student('john',22,'87846488',64);
+
+  const jill=new student('jill',23,'87846488',32);
+
+  const sam=new student('sam',24,'87846488',77);
+  
+  const tom=new student('tom',25,'87846488',10);
