@@ -42,3 +42,61 @@ let multiply=function(x){
 
 let multiplyByTwo= multiply(2);
 multiplyByTwo(5);
+
+// this in global scope
+this.table="window table";
+
+console.log(window.table);
+
+// this inside an object 
+let johnsRoom={
+    table:'johns table'
+}
+console.log(johnsRoom.table)
+
+// this inside a method
+let johnsRoom={
+    table:'johns table',
+    cleanTable(){
+        console.log(`cleaning ${this.table}`)
+    }
+}
+johnsRoom.cleanTable();
+
+// this insidde an inner function
+this.table="window table";
+
+const cleanTable=function(soap){
+    
+    const innerFunction=(_soap)=>{
+        console.log(`cleaning ${this.table}`);
+    }
+    innerFunction(soap)
+};
+cleanTable("some soap");
+
+// this inside a constructor
+let createRoom=function(name){
+    this.table=`${name}s room`
+}
+const cleanTable=function(soap){
+    console.log(`cleaning ${this.table} using ${soap}`);
+}
+const jillsRoom =new createRoom('jill');
+cleanTable.call(jillsRoom,'some soap');
+
+// this inside a class
+class createRoom{
+    constructor(name){
+        this.table=`${name}s table`
+    }
+    cleanTable(soap){
+        console.log(`cleaning ${this.table} using ${soap}`);
+    }
+}
+const jillsRoom=new createRoom('jill');
+const johnRoom=new createRoom('john');
+jillsRoom.cleanTable('some soap');
+johnRoom.cleanTable('some soap');
+
+
