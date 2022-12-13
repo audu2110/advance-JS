@@ -100,3 +100,37 @@ jillsRoom.cleanTable('some soap');
 johnRoom.cleanTable('some soap');
 
 
+class student  
+  {  
+    
+    constructor(name,age,phonenumber,marks)  
+    {  
+      this.name=name;
+      this.age=age;
+      this.phonenumber=phonenumber;
+      this.marks=marks;
+    }
+    checkElegiblity(){
+        if(this.marks>40){
+            console.log('eligible')
+        }
+        else{
+            console.log('not elegible');
+        }
+    }
+    printDetails(){
+        console.log(`${this.name} of age ${this.age} has scored ${this.marks}`)
+    }
+  }
+  const od=new student('od',21,'87846488',50);
+  od.checkElegiblity();
+  od.printDetails();
+  const john=new student('john',22,'87846488',64);
+  john.checkElegiblity();
+  const jill=new student('jill',23,'87846488',32);
+  jill.checkElegiblity();
+  const sam=new student('sam',24,'87846488',77);
+  sam.checkElegiblity();
+  const tom=new student('tom',25,'87846488',10);
+  tom.checkElegiblity();
+
