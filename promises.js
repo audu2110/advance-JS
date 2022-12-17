@@ -104,3 +104,58 @@ createPost({title:"Post Three", body:"This is post Three"},{title:"Post Four", b
 })
 })
      }) 
+
+
+
+//Promises all
+const promise1=Promise.resolve('Hello world');
+const promise2=10;
+const promise3= new  Promise((resolve,reject)=>setTimeout(resolve,2000,'Goodbye'))
+Promise.all([promise1,promise2,promise3]).then((values)=>console.log(values));
+
+
+
+
+
+const posts=[
+    {title:'Post One' , body:'This is post One'},
+    {title:'Post Two' , body:'This is post TWo'}
+];
+
+function getPosts(){
+    setTimeout(() => {
+        let output='';
+        posts.forEach((post,index) => {
+            output+=`<li>${post.title}</li>`
+        });
+        document.body.innerHTML=output;
+    }, 1000);
+}
+
+
+function createPost(post){
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            posts.push(post);
+            const error=false;
+            if(!error){
+                resolve();
+            }
+            else{
+                reject('error: something went wrong')
+            }
+        }, 2000);
+    })
+}
+
+const user={
+    username:'od',
+    lastactivityTime:'17 th of december'
+}
+
+updatelastactivityTime={};
+userupdatesPost(){
+    Promise.all([createPost,updatelastactivityTime]).then(([createPostresolves,updatelastactivityTimeresolves]) => {
+        console.log(updatelastactivityTimeresolves)
+    }).catch(err=>console.log(err))
+}
