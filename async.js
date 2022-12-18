@@ -120,3 +120,7 @@ const preMovie = async () => {
 preMovie().then((t) => console.log(`person4 shows ${t}`));
 
 console.log('person4 shows ticket');
+
+
+ Originally they were designed to decouple variable values from the time and place of their calculation, making parallelisation easier.
+  Using Async/Await makes it easier to read and understand the flow of the program as compared to promise chains.
